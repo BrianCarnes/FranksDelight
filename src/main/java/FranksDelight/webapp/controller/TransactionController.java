@@ -24,6 +24,11 @@ public class TransactionController {
         this.service = service;
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<Transaction> createTransaction(Transaction transaction) {
+        Transaction created = service.createTransaction(transaction);
+        return new ResponseEntity<>(created, new HttpHeaders(), HttpStatus.OK);
+    }
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllComments(
             @RequestParam(defaultValue = "0") Integer pageNo,

@@ -23,6 +23,12 @@ public class MenuController {
         this.service = service;
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<Menu> createMenu(Menu menu) {
+        Menu created = service.createMenu(menu);
+        return new ResponseEntity<>(created, new HttpHeaders(), HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllMenus(
             @RequestParam(defaultValue = "0") Integer pageNo,

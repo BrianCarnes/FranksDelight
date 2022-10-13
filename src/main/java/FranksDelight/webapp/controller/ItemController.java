@@ -2,6 +2,7 @@ package FranksDelight.webapp.controller;
 
 import FranksDelight.webapp.exception.RecordNotFoundException;
 import FranksDelight.webapp.model.Item;
+import FranksDelight.webapp.model.User;
 import FranksDelight.webapp.service.ItemService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,12 @@ public class ItemController {
 
     public ItemController(ItemService service) {
         this.service = service;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Item> createItem(Item item) {
+        Item created = service.createItem(item);
+        return new ResponseEntity<>(created, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping

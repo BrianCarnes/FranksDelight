@@ -23,6 +23,11 @@ public class OrderController {
         this.service = service;
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<Order> createOrder(Order order) {
+        Order created = service.createOrder(order);
+        return new ResponseEntity<>(created, new HttpHeaders(), HttpStatus.OK);
+    }
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllComments(
             @RequestParam(defaultValue = "0") Integer pageNo,

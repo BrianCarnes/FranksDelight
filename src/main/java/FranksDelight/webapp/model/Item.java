@@ -1,5 +1,6 @@
 package FranksDelight.webapp.model;
 
+import FranksDelight.webapp.enums.Categories;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
@@ -19,6 +20,8 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Enumerated(EnumType.STRING)
+    private Categories category;
     @Column(insertable=false, updatable=false)
     private Long userId;
     private String title;
@@ -34,6 +37,7 @@ public class Item {
     private String instructions;
     private String createdAt;
     private String updatedAt;
+    @Column(nullable=true)
     private String deletedAt;
 
     // RELATIONSHIPS

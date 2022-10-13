@@ -24,6 +24,12 @@ public class UserController {
         this.service = service;
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<User> createUser(User user) {
+        User created = service.createUser(user);
+        return new ResponseEntity<>(created, new HttpHeaders(), HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllUsers(
             @RequestParam(defaultValue = "0") Integer pageNo,

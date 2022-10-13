@@ -42,9 +42,13 @@ public class Order {
     private String mobile;
     @Column(nullable=true)
     private String email;
+    @Column(nullable=true)
     private String address;
+    @Column(nullable=true)
     private String city;
+    @Column(nullable=true)
     private String state;
+    @Column(nullable=true)
     private String zip;
     private String createdAt;
     private String updatedAt;
