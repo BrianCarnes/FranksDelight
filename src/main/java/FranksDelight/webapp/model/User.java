@@ -41,15 +41,15 @@ public class User {
 
     // RELATIONSHIPS
     @OneToOne
-    @JoinColumn(name = "menu_id")
+    @JoinColumn(name = "menuId")
     @ToString.Exclude
     private Menu menu;
 
     @ManyToMany
     @JoinTable(
             name = "user_orders",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "orderId")
     )
     @ToString.Exclude
     private Collection<Order> orders;
@@ -57,8 +57,8 @@ public class User {
     @ManyToMany
     @JoinTable(
             name = "user_transactions",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "transaction_id")
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "transactionId")
     )
     @ToString.Exclude
     @JsonBackReference

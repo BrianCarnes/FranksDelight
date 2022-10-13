@@ -18,6 +18,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(insertable=false, updatable=false)
     private Long userId;
     private String status;
     private String title;
@@ -54,8 +55,8 @@ public class Order {
     @ManyToMany
     @JoinTable(
             name = "order_items",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id")
+            joinColumns = @JoinColumn(name = "orderId"),
+            inverseJoinColumns = @JoinColumn(name = "itemId")
     )
     @ToString.Exclude
     @JsonBackReference
@@ -64,8 +65,8 @@ public class Order {
     @ManyToMany
     @JoinTable(
             name = "order_transactions",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "transaction_id")
+            joinColumns = @JoinColumn(name = "orderId"),
+            inverseJoinColumns = @JoinColumn(name = "transactionId")
     )
     @ToString.Exclude
     @JsonBackReference
@@ -74,8 +75,8 @@ public class Order {
     @ManyToMany
     @JoinTable(
             name = "user_orders",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            joinColumns = @JoinColumn(name = "orderId"),
+            inverseJoinColumns = @JoinColumn(name = "userId")
     )
     @ToString.Exclude
     @JsonBackReference

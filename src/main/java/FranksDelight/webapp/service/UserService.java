@@ -3,13 +3,14 @@ package FranksDelight.webapp.service;
 import FranksDelight.webapp.exception.RecordNotFoundException;
 import FranksDelight.webapp.model.User;
 import FranksDelight.webapp.repository.UserRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -85,4 +86,12 @@ public class UserService {
     }
 
 
+    public Map<String, Object> paginate(List<User> users, Page<User> page) {
+        return Map.of(
+                "data", users,
+                "currentPage", page.getNumber(),
+                "totalItems", page.getTotalElements(),
+                "totalPages", page.getTotalPages()
+        );
+    }
 }

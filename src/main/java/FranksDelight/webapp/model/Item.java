@@ -19,6 +19,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(insertable=false, updatable=false)
     private Long userId;
     private String title;
     private String slug;
@@ -37,7 +38,7 @@ public class Item {
 
     // RELATIONSHIPS
     @ManyToOne
-    @JoinColumn(name = "menu_id")
+    @JoinColumn(name = "menuId")
     @ToString.Exclude
     @JsonManagedReference
     private Menu menu;
@@ -45,8 +46,8 @@ public class Item {
     @ManyToMany
     @JoinTable(
             name = "order_items",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")
+            joinColumns = @JoinColumn(name = "itemId"),
+            inverseJoinColumns = @JoinColumn(name = "orderId")
     )
     @ToString.Exclude
     @JsonBackReference

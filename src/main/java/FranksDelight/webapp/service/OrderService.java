@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -83,5 +85,14 @@ public class OrderService {
         } else {
             throw new RecordNotFoundException("No order record exist for given id");
         }
+    }
+
+    public Map<String, Object> paginate(List<Order> orders, Page<Order> page) {
+        return Map.of(
+                "data", orders,
+                "currentPage", page.getNumber(),
+                "totalItems", page.getTotalElements(),
+                "totalPages", page.getTotalPages()
+        );
     }
 }

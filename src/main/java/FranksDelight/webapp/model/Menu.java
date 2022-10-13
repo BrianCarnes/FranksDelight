@@ -1,6 +1,7 @@
 package FranksDelight.webapp.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(insertable=false, updatable=false)
     private Long userId;
     private String title;
     private String slug;
@@ -33,14 +35,14 @@ public class Menu {
 
     // RELATIONSHIPS
     @OneToMany
-    @JoinColumn(name = "menu_id")
+    @JoinColumn(name = "itemId")
     @JsonBackReference
     @ToString.Exclude
     private Collection<Item> item;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     @ToString.Exclude
-    @JsonBackReference
+    @JsonManagedReference
     private User user;
 }

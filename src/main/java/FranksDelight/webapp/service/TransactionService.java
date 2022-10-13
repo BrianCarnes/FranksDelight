@@ -2,6 +2,7 @@ package FranksDelight.webapp.service;
 
 import FranksDelight.webapp.exception.RecordNotFoundException;
 import FranksDelight.webapp.model.Transaction;
+import FranksDelight.webapp.model.User;
 import FranksDelight.webapp.repository.TransactionRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -61,6 +64,15 @@ public class TransactionService {
         } else {
             throw new RecordNotFoundException("No user record exist for given id");
         }
+    }
+
+    public Map<String, Object> paginate(List<Transaction> transactions, Page<Transaction> page) {
+        return Map.of(
+                "data", transactions,
+                "currentPage", page.getNumber(),
+                "totalItems", page.getTotalElements(),
+                "totalPages", page.getTotalPages()
+        );
     }
 }
 

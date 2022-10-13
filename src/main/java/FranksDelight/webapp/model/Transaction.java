@@ -19,7 +19,9 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(insertable=false, updatable=false)
     private Long userId;
+    @Column(insertable=false, updatable=false)
     private Long orderId;
     private String code;
     private String type;
@@ -35,8 +37,8 @@ public class Transaction {
     @ManyToMany
     @JoinTable(
             name = "user_transactions",
-            joinColumns = @JoinColumn(name = "transaction_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
+            joinColumns = @JoinColumn(name = "transactionId"),
+            inverseJoinColumns = @JoinColumn(name = "userId")
     )
     @JsonBackReference
     @ToString.Exclude
@@ -45,8 +47,8 @@ public class Transaction {
     @ManyToMany
     @JoinTable(
             name = "order_transactions",
-            joinColumns = @JoinColumn(name = "transaction_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")
+            joinColumns = @JoinColumn(name = "transactionId"),
+            inverseJoinColumns = @JoinColumn(name = "orderId")
     )
     @JsonBackReference
     @ToString.Exclude
