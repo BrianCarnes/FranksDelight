@@ -17,6 +17,10 @@ import {
 import TrendingUp from '@mui/icons-material/TrendingUp';
 import Text from '../../../components/Text';
 import Chart from 'react-apexcharts';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import SupportIcon from '@mui/icons-material/Support';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import type { ApexOptions } from 'apexcharts';
 
 const AvatarSuccess = styled(Avatar)(
@@ -73,7 +77,7 @@ function AccountBalance() {
         }
       }
     },
-    colors: ['#ff9900', '#1c81c2', '#333', '#5c6ac0'],
+    colors: ['#FF6855', '#E2567F', '#333', '#AE5896'],
     dataLabels: {
       enabled: true,
       formatter: function (val) {
@@ -110,7 +114,7 @@ function AccountBalance() {
     fill: {
       opacity: 1
     },
-    labels: ['Bitcoin', 'Ripple', 'Cardano', 'Ethereum'],
+    labels: ['Sales', 'Profit', 'Vendors', 'Waste'],
     legend: {
       labels: {
         colors: theme.colors.alpha.trueWhite[100]
@@ -142,14 +146,7 @@ function AccountBalance() {
             </Typography>
             <Box>
               <Typography variant="h1" gutterBottom>
-                $54,584.23
-              </Typography>
-              <Typography
-                variant="h4"
-                fontWeight="normal"
-                color="text.secondary"
-              >
-                1.0045983485234 BTC
+                $14,584.23
               </Typography>
               <Box
                 display="flex"
@@ -232,15 +229,12 @@ function AccountBalance() {
                 >
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <img
-                        alt="BTC"
-                        src="/static/images/placeholders/logo/bitcoin.png"
-                      />
+                      <MonetizationOnIcon fontSize="large" />
                     </ListItemAvatarWrapper>
                     <ListItemText
-                      primary="BTC"
+                      primary="$$$"
                       primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-                      secondary="Bitcoin"
+                      secondary="Sales"
                       secondaryTypographyProps={{
                         variant: 'subtitle2',
                         noWrap: true
@@ -255,15 +249,12 @@ function AccountBalance() {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <img
-                        alt="XRP"
-                        src="/static/images/placeholders/logo/ripple.png"
-                      />
+                      <AttachMoneyIcon fontSize="large" />
                     </ListItemAvatarWrapper>
                     <ListItemText
-                      primary="XRP"
+                      primary="PFT"
                       primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-                      secondary="Ripple"
+                      secondary="Profit"
                       secondaryTypographyProps={{
                         variant: 'subtitle2',
                         noWrap: true
@@ -278,15 +269,12 @@ function AccountBalance() {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <img
-                        alt="ADA"
-                        src="/static/images/placeholders/logo/cardano.png"
-                      />
+                      <SupportIcon fontSize="large" />
                     </ListItemAvatarWrapper>
                     <ListItemText
-                      primary="ADA"
+                      primary="VND"
                       primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-                      secondary="Cardano"
+                      secondary="Vendors"
                       secondaryTypographyProps={{
                         variant: 'subtitle2',
                         noWrap: true
@@ -301,15 +289,12 @@ function AccountBalance() {
                   </ListItem>
                   <ListItem disableGutters>
                     <ListItemAvatarWrapper>
-                      <img
-                        alt="ETH"
-                        src="/static/images/placeholders/logo/ethereum.png"
-                      />
+                      <DeleteOutlineIcon fontSize="large" />
                     </ListItemAvatarWrapper>
                     <ListItemText
-                      primary="ETH"
+                      primary="WST"
                       primaryTypographyProps={{ variant: 'h5', noWrap: true }}
-                      secondary="Ethereum"
+                      secondary="Waste"
                       secondaryTypographyProps={{
                         variant: 'subtitle2',
                         noWrap: true

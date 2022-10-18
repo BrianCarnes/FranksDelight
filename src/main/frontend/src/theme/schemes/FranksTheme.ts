@@ -2,15 +2,15 @@ import { alpha, createTheme, lighten, darken } from '@mui/material';
 import '@mui/lab/themeAugmentation';
 
 const themeColors = {
-  primary: '#5569ff',
-  secondary: '#6E759F',
-  success: '#57CA22',
-  warning: '#FFA319',
-  error: '#FF1943',
-  info: '#33C2FF',
-  black: '#223354',
-  white: '#ffffff',
-  primaryAlt: '#000C57'
+  primary: '#41557B',
+  secondary: '#725A94',
+  success: '#3D8522',
+  warning: '#CA7A14',
+  error: '#FF6855',
+  info: '#BFFCFC',
+  black: '#333333',
+  white: '#FFF7C8',
+  primaryAlt: '#2F4858'
 };
 
 const colors = {
@@ -42,15 +42,15 @@ const colors = {
       '0px 1px 4px rgba(85, 105, 255, 0.25), 0px 3px 12px 2px rgba(85, 105, 255, 0.35)',
     warning:
       '0px 1px 4px rgba(255, 163, 25, 0.25), 0px 3px 12px 2px rgba(255, 163, 25, 0.35)',
-    card: '0px 9px 16px rgba(159, 162, 191, .18), 0px 2px 2px rgba(159, 162, 191, 0.32)',
+    card: '0px 9px 16px rgba(237, 233, 208, .18), 0px 2px 2px rgba(237, 233, 208, 0.32)',
     cardSm:
-      '0px 2px 3px rgba(159, 162, 191, .18), 0px 1px 1px rgba(159, 162, 191, 0.32)',
+      '0px 2px 3px rgba(237, 233, 208, .18), 0px 1px 1px rgba(237, 233, 208, 0.32)',
     cardLg:
       '0 5rem 14rem 0 rgb(255 255 255 / 30%), 0 0.8rem 2.3rem rgb(0 0 0 / 60%), 0 0.2rem 0.3rem rgb(0 0 0 / 45%)'
   },
   layout: {
     general: {
-      bodyBg: '#f2f5f9'
+      bodyBg: '#F3ECBD'
     },
     sidebar: {
       background: themeColors.white,
@@ -129,7 +129,7 @@ const colors = {
   }
 };
 
-export const PureLightTheme = createTheme({
+export const FranksTheme = createTheme({
   // direction: i18n.dir(),
   colors: {
     gradients: {

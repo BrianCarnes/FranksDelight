@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @ResponseBody
-@RequestMapping(value = "/api/Transactions", produces = "application/json")
+@RequestMapping(value = "/api/transactions", produces = "application/json")
 @CrossOrigin(origins = "http://localhost:5173/", exposedHeaders = "Content-Range")
 public class TransactionController {
 
@@ -33,7 +33,7 @@ public class TransactionController {
     public ResponseEntity<Map<String, Object>> getAllComments(
             @RequestParam(defaultValue = "0") Integer pageNo,
             @RequestParam(defaultValue = "20") Integer pageSize,
-            @RequestParam(defaultValue = "firstName") String sort) {
+            @RequestParam(defaultValue = "id") String sort) {
         try {
 
             List<Transaction> comments;

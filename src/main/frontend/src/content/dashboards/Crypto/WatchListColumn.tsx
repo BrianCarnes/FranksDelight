@@ -22,7 +22,7 @@ const AvatarWrapper = styled(Avatar)(
     margin-right: ${theme.spacing(1)};
     padding: ${theme.spacing(0.5)};
     border-radius: 60px;
-    height: ${theme.spacing(5.5)};
+    height: ${theme.spacing(6.5)};
     width: ${theme.spacing(5.5)};
     background: ${
       theme.palette.mode === 'dark'
@@ -35,7 +35,7 @@ const AvatarWrapper = styled(Avatar)(
       padding: ${theme.spacing(0.5)};
       display: block;
       border-radius: inherit;
-      height: ${theme.spacing(4.5)};
+      
       width: ${theme.spacing(4.5)};
     }
 `
@@ -125,20 +125,20 @@ function WatchListColumn() {
   };
   const chart1Data = [
     {
-      name: 'Bitcoin Price',
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16]
+      name: 'Molly Sales',
+      data: [5.70, 5.59, 4.60, 4.43, 5.75, 4.98, 5.16]
     }
   ];
   const chart2Data = [
     {
-      name: 'Ethereum Price',
-      data: [13, 16, 14, 20, 8, 11, 20]
+      name: 'Evan Sales',
+      data: [3, 6, 4, 2, 8, 1, 2]
     }
   ];
   const chart3Data = [
     {
-      name: 'Cardano Price',
-      data: [51.85, 41.77, 22.09, 42.0, 71.9, 51.84, 31.84]
+      name: 'Catherine Sales',
+      data: [5.85, 4.77, 2.09, 4.0, 7.9, 5.84, 3.84]
     }
   ];
 
@@ -164,16 +164,16 @@ function WatchListColumn() {
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
                 <img
-                  alt="BTC"
-                  src="/static/images/placeholders/logo/bitcoin.png"
+                  alt="Molly Profile Picture"
+                  src="/static/images/avatars/mollyAvatar.jpg"
                 />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Bitcoin
+                  Molly Sales
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  BTC
+                  MS
                 </Typography>
               </Box>
             </Box>
@@ -192,7 +192,7 @@ function WatchListColumn() {
                   mb: 1
                 }}
               >
-                $56,475.99
+                $2,475.99
               </Typography>
               <Text color="success">
                 <b>+12.5%</b>
@@ -239,16 +239,16 @@ function WatchListColumn() {
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
                 <img
-                  alt="ETH"
-                  src="/static/images/placeholders/logo/ethereum.png"
+                  alt="Evan Profile Picture"
+                  src="/static/images/avatars/evanAvatar.jpg"
                 />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Ethereum
+                  Evan Sales
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ETH
+                  ES
                 </Typography>
               </Box>
             </Box>
@@ -267,7 +267,7 @@ function WatchListColumn() {
                   mb: 1
                 }}
               >
-                $1,968.00
+                $2,968.00
               </Typography>
               <Text color="error">
                 <b>-3.24%</b>
@@ -314,16 +314,16 @@ function WatchListColumn() {
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
                 <img
-                  alt="ADA"
-                  src="/static/images/placeholders/logo/cardano.png"
+                  alt="Catherine Profile Picture"
+                  src="/static/images/avatars/catherineAvatar.jpg"
                 />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Cardano
+                  Catherine Sales
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ADA
+                  CS
                 </Typography>
               </Box>
             </Box>
@@ -342,7 +342,7 @@ function WatchListColumn() {
                   mb: 1
                 }}
               >
-                $23.00
+                $1,923.00
               </Typography>
               <Text color="error">
                 <b>-0.33%</b>

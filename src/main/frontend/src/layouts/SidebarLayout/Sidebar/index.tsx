@@ -50,7 +50,7 @@ function Sidebar() {
           background:
             theme.palette.mode === 'dark'
               ? alpha(lighten(theme.header.background, 0.1), 0.5)
-              : darken(theme.colors.alpha.black[100], 0.5),
+              : darken(theme.colors.alpha.white[100], 0.4),
           boxShadow:
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
@@ -58,9 +58,10 @@ function Sidebar() {
         <Scrollbar>
           <Box mt={3}>
             <Box
-              mx={2}
+              mx={3}
               sx={{
-                width: 52
+                width: "52",
+                display: "flex"
               }}
             >
               <Logo />
@@ -75,24 +76,7 @@ function Sidebar() {
           />
           <SidebarMenu />
         </Scrollbar>
-        <Divider
-          sx={{
-            background: theme.colors.alpha.trueWhite[10]
-          }}
-        />
-        <Box p={2}>
-          <Button
-            href="https://bloomui.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="contained"
-            color="warning"
-            size="small"
-            fullWidth
-          >
-            Upgrade to PRO
-          </Button>
-        </Box>
+
       </SidebarWrapper>
       <Drawer
         sx={{

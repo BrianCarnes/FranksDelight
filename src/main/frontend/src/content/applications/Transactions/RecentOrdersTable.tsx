@@ -178,6 +178,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
 
   // @ts-ignore
   // @ts-ignore
+  // @ts-ignore
   return (
     <Card>
       {selectedBulkActions && (

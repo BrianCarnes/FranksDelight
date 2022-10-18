@@ -3,6 +3,7 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 import { styled } from '@mui/material/styles';
+import Logo from '../../../components/LogoSign'
 
 const TypographyH1 = styled(Typography)(
   ({ theme }) => `
@@ -80,7 +81,9 @@ function Hero() {
         container
       >
         <Grid item md={10} lg={8} mx="auto">
-          <LabelWrapper color="success">Version 1.0.0</LabelWrapper>
+          <Box display="flex" justifyContent="flex-end"  py={0} margin={1} padding={1}>
+            <Logo />
+          </Box>
           <TypographyH1 sx={{ mb: 2 }} variant="h1">
             Franks Delight
           </TypographyH1>
@@ -90,13 +93,13 @@ function Hero() {
             color="text.secondary"
             fontWeight="normal"
           >
-            High performance React dashboard built with lots of powerful
+            High performance point of sale system built with lots of powerful
             Material-UI components across multiple product niches for fast &
             perfect apps development processes
           </TypographyH2>
           <Button
             component={RouterLink}
-            to="/dashboards/crypto"
+            to="/dashboards/admin"
             size="large"
             variant="contained"
           >

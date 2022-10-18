@@ -32,7 +32,7 @@ public class OrderController {
     public ResponseEntity<Map<String, Object>> getAllComments(
             @RequestParam(defaultValue = "0") Integer pageNo,
             @RequestParam(defaultValue = "20") Integer pageSize,
-            @RequestParam(defaultValue = "firstName") String sort) {
+            @RequestParam(defaultValue = "id") String sort) {
         try {
 
             List<Order> comments;

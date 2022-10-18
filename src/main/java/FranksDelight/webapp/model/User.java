@@ -2,6 +2,8 @@ package FranksDelight.webapp.model;
 
 import FranksDelight.webapp.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -43,6 +45,7 @@ public class User {
     @OneToOne
     @JoinColumn(name = "menuId")
     @ToString.Exclude
+    @JsonIgnoreProperties("user")
     private Menu menu;
 
     @ManyToMany
@@ -52,6 +55,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "orderId")
     )
     @ToString.Exclude
+    @JsonBackReference
     private Collection<Order> orders;
 
     @ManyToMany

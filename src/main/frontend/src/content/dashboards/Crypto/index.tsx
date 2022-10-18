@@ -13,7 +13,7 @@ function DashboardCrypto() {
   return (
     <>
       <Helmet>
-        <title>Crypto Dashboard</title>
+        <title>Franks Delight</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />

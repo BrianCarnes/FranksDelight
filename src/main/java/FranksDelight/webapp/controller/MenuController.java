@@ -33,7 +33,7 @@ public class MenuController {
     public ResponseEntity<Map<String, Object>> getAllMenus(
             @RequestParam(defaultValue = "0") Integer pageNo,
             @RequestParam(defaultValue = "20") Integer pageSize,
-            @RequestParam(defaultValue = "firstName") String sort) {
+            @RequestParam(defaultValue = "id") String sort) {
         try {
 
             List<Menu> comments;

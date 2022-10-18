@@ -85,13 +85,13 @@ function Wallets() {
           pb: 3
         }}
       >
-        <Typography variant="h3">Wallets</Typography>
+        <Typography variant="h3">Vendors</Typography>
         <Button
           size="small"
           variant="outlined"
           startIcon={<AddTwoToneIcon fontSize="small" />}
         >
-          Add new wallet
+          Add new vendor
         </Button>
       </Box>
       <Grid container spacing={3}>
@@ -104,15 +104,15 @@ function Wallets() {
             <CardContent>
               <AvatarWrapper>
                 <img
-                  alt="BTC"
-                  src="/static/images/placeholders/logo/bitcoin.png"
+                  alt="Pepsi"
+                  src="/static/images/logo/PepsiLogo.svg"
                 />
               </AvatarWrapper>
               <Typography variant="h5" noWrap>
-                Bitcoin
+                Pepsi
               </Typography>
               <Typography variant="subtitle1" noWrap>
-                BTC
+                PEP
               </Typography>
               <Box
                 sx={{
@@ -120,10 +120,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h3" gutterBottom noWrap>
-                  $3,586.22
-                </Typography>
-                <Typography variant="subtitle2" noWrap>
-                  1.25843 BTC
+                  $1,586.22
                 </Typography>
               </Box>
             </CardContent>
@@ -138,15 +135,15 @@ function Wallets() {
             <CardContent>
               <AvatarWrapper>
                 <img
-                  alt="Ripple"
-                  src="/static/images/placeholders/logo/ripple.png"
+                  alt="US Foods"
+                  src="/static/images/logo/US_Foods_logo.svg"
                 />
               </AvatarWrapper>
               <Typography variant="h5" noWrap>
-                Ripple
+                US Foods
               </Typography>
               <Typography variant="subtitle1" noWrap>
-                XRP
+                USFD
               </Typography>
               <Box
                 sx={{
@@ -154,10 +151,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h3" gutterBottom noWrap>
-                  $586.83
-                </Typography>
-                <Typography variant="subtitle2" noWrap>
-                  5,783 XRP
+                  $2,586.83
                 </Typography>
               </Box>
             </CardContent>
@@ -172,15 +166,15 @@ function Wallets() {
             <CardContent>
               <AvatarWrapper>
                 <img
-                  alt="Cardano"
-                  src="/static/images/placeholders/logo/cardano.png"
+                  alt="Nathan's Famous"
+                  src="/static/images/logo/Nathan's_Famous.svg"
                 />
               </AvatarWrapper>
               <Typography variant="h5" noWrap>
-                Cardano
+                Nathan's
               </Typography>
               <Typography variant="subtitle1" noWrap>
-                ADA
+                NATH
               </Typography>
               <Box
                 sx={{
@@ -188,10 +182,7 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h3" gutterBottom noWrap>
-                  $54,985.00
-                </Typography>
-                <Typography variant="subtitle2" noWrap>
-                  34,985 ADA
+                  $2,985.00
                 </Typography>
               </Box>
             </CardContent>

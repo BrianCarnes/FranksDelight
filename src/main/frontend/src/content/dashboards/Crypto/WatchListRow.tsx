@@ -117,21 +117,21 @@ function WatchListRow() {
 
   const Box1Data = [
     {
-      name: 'Bitcoin',
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16]
+      name: 'Molly',
+      data: [5.701, 5.598, 4.607, 4.439, 5.755, 4.978, 5.16]
     }
   ];
 
   const Box2Data = [
     {
-      name: 'Ethereum',
+      name: 'Evan',
       data: [1.854, 1.873, 1.992, 2.009, 1.909, 1.942, 1.884]
     }
   ];
 
   const Box3Data = [
     {
-      name: 'Cardano',
+      name: 'Catherine',
       data: [13, 16, 14, 18, 8, 11, 20]
     }
   ];
@@ -159,16 +159,16 @@ function WatchListRow() {
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
                 <img
-                  alt="BTC"
-                  src="/static/images/placeholders/logo/bitcoin.png"
+                  alt="Molly Profile Picture"
+                  src="/static/images/avatars/mollyAvatar.jpg"
                 />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Bitcoin
+                  Molly Sales
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  BTC
+                  MS
                 </Typography>
               </Box>
             </Box>
@@ -193,7 +193,7 @@ function WatchListRow() {
                   pr: 1
                 }}
               >
-                $56,475.99
+                $2,475.99
               </Typography>
               <Text color="success">
                 <b>+12.5%</b>
@@ -228,16 +228,16 @@ function WatchListRow() {
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
                 <img
-                  alt="ETH"
-                  src="/static/images/placeholders/logo/ethereum.png"
+                  alt="Evan Profile Picture"
+                  src="/static/images/avatars/evanAvatar.jpg"
                 />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Ethereum
+                  Evan Sales
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ETH
+                  ES
                 </Typography>
               </Box>
             </Box>
@@ -262,7 +262,7 @@ function WatchListRow() {
                   pr: 1
                 }}
               >
-                $1,968.00
+                $2,968.00
               </Typography>
               <Text color="error">
                 <b>-3.24%</b>
@@ -297,16 +297,16 @@ function WatchListRow() {
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
                 <img
-                  alt="ADA"
-                  src="/static/images/placeholders/logo/cardano.png"
+                  alt="Catherine Profile Picture"
+                  src="/static/images/avatars/catherineAvatar.jpg"
                 />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Cardano
+                  Catherine Sales
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ADA
+                  CS
                 </Typography>
               </Box>
             </Box>
@@ -331,7 +331,7 @@ function WatchListRow() {
                   pr: 1
                 }}
               >
-                $23.00
+                $1,923.00
               </Typography>
               <Text color="error">
                 <b>-0.33%</b>

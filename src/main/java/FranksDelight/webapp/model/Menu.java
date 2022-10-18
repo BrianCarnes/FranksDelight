@@ -1,6 +1,7 @@
 package FranksDelight.webapp.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -43,6 +44,6 @@ public class Menu {
     @OneToOne
     @JoinColumn(name = "userId")
     @ToString.Exclude
-    @JsonManagedReference
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private User user;
 }

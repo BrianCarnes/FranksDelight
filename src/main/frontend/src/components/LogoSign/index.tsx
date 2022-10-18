@@ -15,15 +15,18 @@ const LogoWrapper = styled(Link)(
         display: flex;
         text-decoration: none;
         width: 53px;
-        margin: 0 auto;
+        margin: 0;
+        padding: 0;
         font-weight: ${theme.typography.fontWeightBold};
 `
 );
 
 const LogoSignWrapper = styled(Box)(
   () => `
-        width: 52px;
-        height: 38px;
+        width: 10em;
+        height: 10em;
+        margin: 0;
+        border-radius: 30px;
 `
 );
 
@@ -77,6 +80,19 @@ const LogoSignInner = styled(Box)(
 `
 );
 
+const FranksLogo = styled(Box)(
+  ({ theme }) => `
+        width: 100%;
+        height: 100%;
+        backgroundSize: cover;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 5;
+        background: url("/FranksDelight.svg");
+        `
+);
+
 const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }}  />
 ))(({ theme }) => ({
@@ -107,18 +123,16 @@ function Logo() {
           sx={{
             '.MuiBadge-badge': {
               fontSize: theme.typography.pxToRem(11),
-              right: -2,
-              top: 8
+              right: -10,
+              top: 0
             }
           }}
           overlap="circular"
           color="success"
-          badgeContent="2.0"
+          badgeContent="1.0"
         >
           <LogoSignWrapper>
-            <LogoSign>
-              <LogoSignInner />
-            </LogoSign>
+            <FranksLogo />
           </LogoSignWrapper>
         </Badge>
       </LogoWrapper>
