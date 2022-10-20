@@ -3,12 +3,14 @@ package FranksDelight.webapp.model;
 import FranksDelight.webapp.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
+
 
 
 @NoArgsConstructor
@@ -31,10 +33,13 @@ public class User {
     private String email;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    private Date createdDate;
-    private Date updatedDate;
+    @CreatedDate
+    private LocalDateTime createdDate;
+    @LastModifiedDate
+    private LocalDateTime updatedDate;
     @Column(nullable=true)
-    private Date lastLoginDate;
+    @LastModifiedDate
+    private LocalDateTime lastLoginDate;
     @Column(nullable=true)
     private String intro;
     @Column(nullable=true)

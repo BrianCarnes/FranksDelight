@@ -9,7 +9,7 @@ export default class BaseService {
       .get<Array<T>>(this.baseURL + url)
       .then((response: any) => {
         const result = response.data;
-        if (result && result.success) {
+        if (result && response.status === 200) {
           return new Response(true, result.data as Array<T>, 'Success', '');
         } else {
           const msg =
@@ -83,9 +83,9 @@ export default class BaseService {
         return new Response(false, null, 'Error', error);
       });
   }
-  public static update<T>(url: string, param: any, obj: T): Promise<Response> {
+  public static update<T>(url: string, obj: T): Promise<Response> {
     return axios
-      .post(this.baseURL + url + param, obj)
+      .post(this.baseURL + url, obj)
       .then((response) => {
         const result = response.data;
         if (result && result.success) {

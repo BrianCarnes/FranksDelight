@@ -13,6 +13,7 @@ const LogoWrapper = styled(Link)(
   ({ theme }) => `
         color: ${theme.palette.text.primary};
         display: flex;
+        justify-content: center;
         text-decoration: none;
         width: 53px;
         margin: 0;
@@ -119,18 +120,7 @@ function Logo() {
       arrow
     >
       <LogoWrapper to="/overview">
-        <Badge
-          sx={{
-            '.MuiBadge-badge': {
-              fontSize: theme.typography.pxToRem(11),
-              right: -10,
-              top: 0
-            }
-          }}
-          overlap="circular"
-          color="success"
-          badgeContent="1.0"
-        >
+        <Badge>
           <LogoSignWrapper>
             <FranksLogo />
           </LogoSignWrapper>

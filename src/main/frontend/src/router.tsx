@@ -20,7 +20,9 @@ const Overview = Loader(lazy(() => import('./content/overview')));
 
 // Dashboards
 
-const Crypto = Loader(lazy(() => import('./content/dashboards/Crypto')));
+const Crypto = Loader(lazy(() => import('./content/dashboards/Admin')));
+
+const POS = Loader(lazy(() => import('./content/dashboards/POS')));
 
 // Applications
 
@@ -131,6 +133,10 @@ const routes: RouteObject[] = [
       {
         path: 'admin',
         element: <Crypto />
+      },
+      {
+        path: 'pos',
+        element: <POS />
       },
       {
         path: 'messenger',

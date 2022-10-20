@@ -451,6 +451,7 @@ export const FranksTheme = createTheme({
     MuiListSubheader: {
       styleOverrides: {
         colorPrimary: {
+          fontFamily: 'Merriweather Sans',
           fontWeight: 'bold',
           lineHeight: '40px',
           fontSize: 13,
@@ -466,6 +467,7 @@ export const FranksTheme = createTheme({
           marginBottom: -5
         },
         title: {
+          fontFamily: 'Merriweather',
           fontSize: 15
         }
       }
@@ -513,8 +515,8 @@ export const FranksTheme = createTheme({
     MuiAvatar: {
       styleOverrides: {
         root: {
+          fontFamily: 'Merriweather',
           fontSize: 14,
-          fontWeight: 'bold'
         },
         colorDefault: {
           background: colors.alpha.black[30],
@@ -1146,56 +1148,64 @@ export const FranksTheme = createTheme({
   },
   typography: {
     fontFamily:
-      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+      '"Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     h1: {
-      fontWeight: 700,
+      fontFamily: '"Merriweather", monospace',
       fontSize: 35
     },
     h2: {
-      fontWeight: 700,
+      fontFamily: '"Merriweather", monospace',
       fontSize: 30
     },
     h3: {
-      fontWeight: 700,
+      fontFamily: '"Merriweather", monospace',
       fontSize: 25,
       lineHeight: 1.4,
       color: colors.alpha.black[100]
     },
     h4: {
-      fontWeight: 700,
+      fontFamily: '"Merriweather", monospace',
       fontSize: 16
     },
     h5: {
-      fontWeight: 700,
+      fontFamily: '"Merriweather", monospace',
       fontSize: 14
     },
     h6: {
+      fontFamily: '"Merriweather", monospace',
       fontSize: 15
     },
     body1: {
+      fontFamily: "Merriweather Sans",
       fontSize: 14
     },
     body2: {
+      fontFamily: "Merriweather Sans",
       fontSize: 14
     },
     button: {
+      fontFamily: "Merriweather Sans",
       fontWeight: 600
     },
     caption: {
+      fontFamily: "Merriweather Sans",
       fontSize: 13,
       textTransform: 'uppercase',
       color: colors.alpha.black[50]
     },
     subtitle1: {
+      fontFamily: "Merriweather Sans",
       fontSize: 14,
       color: colors.alpha.black[70]
     },
     subtitle2: {
+      fontFamily: "Merriweather Sans",
       fontWeight: 400,
       fontSize: 15,
       color: colors.alpha.black[70]
     },
     overline: {
+      fontFamily: "Merriweather Sans",
       fontSize: 13,
       fontWeight: 700,
       textTransform: 'uppercase'

@@ -221,6 +221,17 @@ function SidebarMenu() {
               <ListItem component="div">
                 <Button
                   disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/dashboards/pos"
+                  startIcon={<BrightnessLowTwoToneIcon />}
+                >
+                  Point of Sale
+                </Button>
+              </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
                   disabled
                   component={RouterLink}
                   onClick={closeSidebar}

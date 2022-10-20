@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 
@@ -27,10 +28,10 @@ public class Menu {
     private String slug;
     @Column(nullable=true)
     private String summary;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
     @Column(nullable=true)
-    private Date deletedAt;
+    private LocalDate deletedAt;
     @Column(nullable=true)
     private String content;
 

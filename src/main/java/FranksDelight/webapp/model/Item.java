@@ -2,11 +2,16 @@ package FranksDelight.webapp.model;
 
 import FranksDelight.webapp.enums.Categories;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,10 +40,12 @@ public class Item {
     private float quantity;
     private Boolean isAvailable;
     private String instructions;
-    private String createdAt;
-    private String updatedAt;
+    private LocalDateTime createdAt;
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updatedAt;
     @Column(nullable=true)
-    private String deletedAt;
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime deletedAt;
 
     // RELATIONSHIPS
     @ManyToOne

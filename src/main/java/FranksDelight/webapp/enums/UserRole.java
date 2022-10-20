@@ -2,5 +2,5 @@ package FranksDelight.webapp.enums;
 
 
 public enum UserRole {
-    ADMIN, AGENT
+    ADMIN, AGENT, GUEST
 }

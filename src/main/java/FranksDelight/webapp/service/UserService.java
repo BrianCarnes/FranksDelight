@@ -1,18 +1,22 @@
 package FranksDelight.webapp.service;
 
+import FranksDelight.webapp.enums.UserRole;
 import FranksDelight.webapp.exception.RecordNotFoundException;
 import FranksDelight.webapp.model.User;
 import FranksDelight.webapp.repository.UserRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static java.time.LocalDateTime.now;
 
 
 @Service
@@ -47,22 +51,15 @@ public class UserService {
         }
     }
 
-    public User updateUser(User entity) throws RecordNotFoundException {
-        Optional<User> user = repository.findById(entity.getId());
-
-        if(user.isPresent())
+    public User updateUser(@RequestBody User passedInUser) throws RecordNotFoundException {
+        Optional<User> currentUser = repository.findById(passedInUser.getId());
+        System.out.println(currentUser);
+        if(currentUser.isPresent())
         {
-            User newUser = user.get();
-            newUser.setFirstName(entity.getFirstName());
-            newUser.setMiddleName(entity.getMiddleName());
-            newUser.setLastName(entity.getLastName());
-            newUser.setEmail(entity.getEmail());
-            newUser.setRole(entity.getRole());
-            newUser.setActive(entity.isActive());
-            newUser.setMobile(entity.getMobile());
-            newUser.setIntro(entity.getIntro());
-            newUser.setProfile(entity.getProfile());
-            newUser.setActive(entity.isActive());
+            User newUser = currentUser.get();
+            newUser.setLastLoginDate(now());
+            newUser.setUpdatedDate(now());
+            BeanUtils.copyProperties(passedInUser, newUser, FieldHelper.getNullPropertyNames(passedInUser));
             return repository.save(newUser);
         } else {
             throw new RecordNotFoundException("No user record exist for given id");
@@ -70,7 +67,19 @@ public class UserService {
     }
 
     public User createUser(User entity) {
-        return repository.save(entity);
+        User newUser = new User();
+
+        BeanUtils.copyProperties(entity, newUser, FieldHelper.getNullPropertyNames(entity));
+        newUser.setActive(true);
+        newUser.setCreatedDate(now());
+        newUser.setLastLoginDate(now());
+        newUser.setUpdatedDate(now());
+        newUser.setMiddleName(null);
+        newUser.setIntro("Hello, I am a new user");
+        newUser.setProfile("This is my profile");
+        newUser.setRole(UserRole.GUEST);
+        newUser.setMobile(null);
+        return repository.save(newUser);
     }
 
     public void deleteUserById(Long id) throws RecordNotFoundException

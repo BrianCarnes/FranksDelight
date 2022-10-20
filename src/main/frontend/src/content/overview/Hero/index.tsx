@@ -1,9 +1,12 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-
-import { Link as RouterLink } from 'react-router-dom';
-
 import { styled } from '@mui/material/styles';
 import Logo from '../../../components/LogoSign'
+import { useEffect, useState } from 'react'
+import Google from '../../../../google_credentials.json'
+import { GoogleLogin } from 'react-google-login';
+import { gapi } from 'gapi-script';
+import CRUD from '../../../hooks/CRUDService'
+import { Link, redirect } from 'react-router-dom'
 
 const TypographyH1 = styled(Typography)(
   ({ theme }) => `
@@ -72,6 +75,59 @@ const TsAvatar = styled(Box)(
 );
 
 function Hero() {
+  const userGet = CRUD.getAll('/users');
+  const [ profile, setProfile ] = useState([]);
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: Google.web.client_id,
+        scope: 'profile'
+      });
+    };
+    gapi.load('client:auth2', initClient);
+  });
+
+  // Sets the Google User object to state
+  // Redirects to the dashboard
+  // And sends the user to the backend if they are not already in the database
+  const onSuccess = (res: any) => {
+    console.log('success:', res);
+    userGet.then((data) => {
+      // Check if the user is already in the database
+      if (data.Data.filter((user: any) => user.email === res.profileObj.email).length === 0) {
+        setProfile(data.Data.filter((user: any) => user.email === res.profileObj.email));
+        console.log("Update User!");
+        CRUD.update('/users/update', {
+          active: true,
+          first_name: res.profileObj.givenName,
+          last_name: res.profileObj.familyName
+        })
+          .then(r => console.log(r));
+        redirect('/dashboards/admin');
+      } else {
+          if (res.profileObj.givenName !== null) {
+            console.log("Create User!");
+            CRUD.create('/users/create', {
+              email: res.profileObj.email,
+              firstName: res.profileObj.givenName,
+              lastName: res.profileObj.familyName,
+            }).then(r => {
+              console.log(r);
+              setProfile(r.Data);
+              redirect('/dashboards/admin');
+            })
+          } else {
+            console.log("Create User failed! No name provided!");
+          }
+        }
+    });
+  };
+
+  const onFailure = (err: any) => {
+    console.log('failed:', err);
+    return redirect('/');
+  };
+
   return (
     <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
       <Grid
@@ -81,41 +137,28 @@ function Hero() {
         container
       >
         <Grid item md={10} lg={8} mx="auto">
-          <Box display="flex" justifyContent="flex-end"  py={0} margin={1} padding={1}>
+          <Box display="flex" justifyContent="center"  py={0} margin={1} padding={1}>
             <Logo />
           </Box>
           <TypographyH1 sx={{ mb: 2 }} variant="h1">
             Franks Delight
           </TypographyH1>
-          <TypographyH2
-            sx={{ lineHeight: 1.5, pb: 4 }}
-            variant="h4"
-            color="text.secondary"
-            fontWeight="normal"
-          >
-            High performance point of sale system built with lots of powerful
-            Material-UI components across multiple product niches for fast &
-            perfect apps development processes
-          </TypographyH2>
-          <Button
-            component={RouterLink}
-            to="/dashboards/admin"
-            size="large"
-            variant="contained"
-          >
-            Browse Live Preview
-          </Button>
-          <Button
-            sx={{ ml: 2 }}
-            component="a"
-            target="_blank"
-            rel="noopener"
-            href="https://github.com/BrianCarnes"
-            size="large"
-            variant="text"
-          >
-            Key Features
-          </Button>
+          <GoogleLogin
+            clientId={Google.web.client_id}
+            buttonText="Sign in with Google"
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={'single_host_origin'}
+            isSignedIn={true}
+          />
+          {/* <Button */}
+          {/*   component={RouterLink} */}
+          {/*   to="/dashboards/admin" */}
+          {/*   size="large" */}
+          {/*   variant="contained" */}
+          {/* > */}
+          {/*   Browse Live Preview */}
+          {/* </Button> */}
           <Grid container spacing={3} mt={5}>
             <Grid item md={6}>
               <MuiAvatar>

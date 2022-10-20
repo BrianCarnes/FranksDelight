@@ -4,6 +4,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from './theme/ThemeProvider';
+import CRUD from './hooks/CRUDService';
 
 
 function App() {

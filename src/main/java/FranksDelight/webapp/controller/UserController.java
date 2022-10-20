@@ -55,7 +55,8 @@ public class UserController {
         return new ResponseEntity<>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PatchMapping("/update")
+    @CrossOrigin
     public ResponseEntity<User> UpdateUser(User user) throws RecordNotFoundException {
         User updated = service.updateUser(user);
         return new ResponseEntity<>(updated, new HttpHeaders(), HttpStatus.OK);

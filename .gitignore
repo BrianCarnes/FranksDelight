@@ -18,7 +18,7 @@ target/
 !**/src/test/**/target/
 /src/main/resources/application.properties
 /src/main/resources/apikey.properties
-/src/main/frontend/node_modules
+/src/main/frontend/google_credentials.json
 
 ### STS ###
 .apt_generated
