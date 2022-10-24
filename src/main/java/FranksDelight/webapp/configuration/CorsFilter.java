@@ -17,6 +17,7 @@ public class CorsFilter implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:5173")
                 .allowedOrigins("http://localhost:5174")
                 .allowedOrigins("http://localhost:8080")
+                .allowedOrigins("http://18.117.178.65:8080")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
     }
 }
