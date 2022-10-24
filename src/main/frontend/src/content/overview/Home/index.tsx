@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Logo from '../../../components/LogoSign'
 import { FunctionComponent, useEffect, useState } from 'react'
@@ -157,17 +157,19 @@ const onFailure = (err: any) => {
         <TypographyH1 sx={{ mb: 2 }} variant="h1">
           Franks Delight
         </TypographyH1>
-        <GoogleLogin
-          clientId={Google.web.client_id}
-          buttonText="Sign in with Google"
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={'single_host_origin'}
-          isSignedIn={true}
-        />
-        <Button variant="contained" color="primary" component={Link} to="/dashboard" disabled={currentUser.length > 0}>
-          To Dashboard
-        </Button>
+        <Stack spacing={3} sx={{ mb: 2 }} direction="row" justifyContent="center">
+          <GoogleLogin
+            clientId={Google.web.client_id}
+            buttonText="Sign in with Google"
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={'single_host_origin'}
+            isSignedIn={true}
+          />
+          <Button variant="contained" color="primary" component={Link} to="/dashboards/admin" disabled={currentUser.length > 0}>
+            To Dashboard
+          </Button>
+        </Stack>
         <Grid container spacing={3} mt={5}>
           <Grid item md={6}>
             <MuiAvatar>
