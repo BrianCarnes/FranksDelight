@@ -30,6 +30,8 @@ public class Item {
     @Column(insertable=false, updatable=false)
     private Long userId;
     private String title;
+    @Column(nullable=true)
+    private String image;
     private String slug;
     @Column(nullable=true)
     private String summary;
@@ -41,10 +43,8 @@ public class Item {
     private Boolean isAvailable;
     private String instructions;
     private LocalDateTime createdAt;
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
     @Column(nullable=true)
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime deletedAt;
 
     // RELATIONSHIPS

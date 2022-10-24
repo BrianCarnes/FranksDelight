@@ -20,6 +20,7 @@
     "@mui/system": "^5.10.9",
     "@mui/x-date-pickers": "^5.0.4",
     "@stripe/react-stripe-js": "^1.13.0",
+    "@stripe/stripe-js": "^1.42.0",
     "@types/nprogress": "^0.2.0",
     "@types/react-stripe-elements": "^6.0.6",
     "apexcharts": "^3.36.0",

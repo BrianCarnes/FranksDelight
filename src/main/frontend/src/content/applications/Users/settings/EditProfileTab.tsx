@@ -14,6 +14,7 @@ import Text from '../../../../components/Text';
 import Label from '../../../../components/Label';
 
 function EditProfileTab() {
+  const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
@@ -29,7 +30,7 @@ function EditProfileTab() {
                 Personal Details
               </Typography>
               <Typography variant="subtitle2">
-                Manage informations related to your personal details
+                Manage information related to your personal details
               </Typography>
             </Box>
             <Button variant="text" startIcon={<EditTwoToneIcon />}>
@@ -47,7 +48,7 @@ function EditProfileTab() {
                 </Grid>
                 <Grid item xs={12} sm={8} md={9}>
                   <Text color="black">
-                    <b>Craig Donin</b>
+                    <b>{currentUser.firstName + ' ' + currentUser.lastName}</b>
                   </Text>
                 </Grid>
                 <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
@@ -57,7 +58,7 @@ function EditProfileTab() {
                 </Grid>
                 <Grid item xs={12} sm={8} md={9}>
                   <Text color="black">
-                    <b>15 March 1977</b>
+                    <b>18 October 1985</b>
                   </Text>
                 </Grid>
                 <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
@@ -68,8 +69,7 @@ function EditProfileTab() {
                 <Grid item xs={12} sm={8} md={9}>
                   <Box sx={{ maxWidth: { xs: 'auto', sm: 300 } }}>
                     <Text color="black">
-                      1749 High Meadow Lane, SEQUOIA NATIONAL PARK, California,
-                      93262
+                      1510 Victoria Way, Friendswood, TX 77546
                     </Text>
                   </Box>
                 </Grid>
@@ -119,7 +119,7 @@ function EditProfileTab() {
                 </Grid>
                 <Grid item xs={12} sm={8} md={9}>
                   <Text color="black">
-                    <b>GMT +2</b>
+                    <b>GMT -4</b>
                   </Text>
                 </Grid>
                 <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
@@ -130,7 +130,7 @@ function EditProfileTab() {
                 <Grid item xs={12} sm={8} md={9}>
                   <Label color="success">
                     <DoneTwoToneIcon fontSize="small" />
-                    <b>Active</b>
+                    <b>{currentUser.active}</b>
                   </Label>
                 </Grid>
               </Grid>
@@ -169,7 +169,7 @@ function EditProfileTab() {
                 </Grid>
                 <Grid item xs={12} sm={8} md={9}>
                   <Text color="black">
-                    <b>example@demo.com</b>
+                    <b>{currentUser.email}</b>
                   </Text>
                   <Box pl={1} component="span">
                     <Label color="success">Primary</Label>
@@ -182,7 +182,7 @@ function EditProfileTab() {
                 </Grid>
                 <Grid item xs={12} sm={8} md={9}>
                   <Text color="black">
-                    <b>demo@example.com</b>
+                    <b>{currentUser.email}</b>
                   </Text>
                 </Grid>
               </Grid>

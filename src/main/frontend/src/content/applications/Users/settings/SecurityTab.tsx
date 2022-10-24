@@ -76,6 +76,7 @@ function SecurityTab() {
     setPage(0);
   };
 
+  const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
   const logs = [
     {
       id: 1,
@@ -136,10 +137,10 @@ function SecurityTab() {
                   lineHeight: 1
                 }}
                 primary="Google"
-                secondary="A Google account hasn’t been yet added to your account"
+                secondary={"Account " + currentUser.email + " is connected"}
               />
-              <Button color="secondary" size="large" variant="contained">
-                Connect
+              <Button color="primary" size="large" variant="contained">
+                Connected
               </Button>
             </ListItem>
           </List>
@@ -199,21 +200,6 @@ function SecurityTab() {
         </Box>
         <Card>
           <List>
-            <ListItem sx={{ p: 3 }}>
-              <ListItemText
-                primaryTypographyProps={{ variant: 'h5', gutterBottom: true }}
-                secondaryTypographyProps={{
-                  variant: 'subtitle2',
-                  lineHeight: 1
-                }}
-                primary="Change Password"
-                secondary="You can change your password here"
-              />
-              <Button size="large" variant="outlined">
-                Change password
-              </Button>
-            </ListItem>
-            <Divider component="li" />
             <ListItem sx={{ p: 3 }}>
               <ListItemText
                 primaryTypographyProps={{ variant: 'h5', gutterBottom: true }}

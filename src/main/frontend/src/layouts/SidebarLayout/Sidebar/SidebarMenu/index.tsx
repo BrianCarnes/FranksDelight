@@ -31,6 +31,7 @@ import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwo
 import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -224,7 +225,7 @@ function SidebarMenu() {
                   component={RouterLink}
                   onClick={closeSidebar}
                   to="/dashboards/pos"
-                  startIcon={<BrightnessLowTwoToneIcon />}
+                  startIcon={<PointOfSaleIcon />}
                 >
                   Point of Sale
                 </Button>

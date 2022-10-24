@@ -20,7 +20,7 @@ const Overview = Loader(lazy(() => import('./content/overview')));
 
 // Dashboards
 
-const Crypto = Loader(lazy(() => import('./content/dashboards/Admin')));
+const Admin = Loader(lazy(() => import('./content/dashboards/Admin')));
 
 const POS = Loader(lazy(() => import('./content/dashboards/POS')));
 
@@ -132,7 +132,7 @@ const routes: RouteObject[] = [
       },
       {
         path: 'admin',
-        element: <Crypto />
+        element: <Admin />
       },
       {
         path: 'pos',

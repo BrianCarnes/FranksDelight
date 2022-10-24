@@ -90,6 +90,7 @@ function Wallets() {
           size="small"
           variant="outlined"
           startIcon={<AddTwoToneIcon fontSize="small" />}
+          disabled
         >
           Add new vendor
         </Button>

@@ -8,16 +8,12 @@ import CakeIcon from '@mui/icons-material/Cake';
 import TapasIcon from '@mui/icons-material/Tapas';
 import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 
-function PageHeader() {
+function PageHeader( props: any ) {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
 
   return (
-    <Tabs value={value} onChange={handleChange} aria-label="icon label tabs example" centered>
+    <Tabs value={props.value} onChange={props.handleChange} aria-label="icon label tabs example" centered>
       <Tab icon={<TapasIcon />} />
       <Tab icon={<RestaurantIcon />} />
       <Tab icon={<LocalDrinkIcon />} />

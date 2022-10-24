@@ -10,11 +10,11 @@ import {
   Hidden,
   lighten,
   List,
-  ListItem,
+  ListItem, ListItemButton,
   ListItemText,
   Popover,
-  Typography
-} from '@mui/material';
+  Typography,
+} from '@mui/material'
 
 import InboxTwoToneIcon from '@mui/icons-material/InboxTwoTone';
 import { styled } from '@mui/material/styles';
@@ -59,10 +59,11 @@ const UserBoxDescription = styled(Typography)(
 );
 
 function HeaderUserbox() {
+  const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
   const user = {
-    name: 'Frank Sebastian',
+    name: currentUser.firstName + ' ' + currentUser.lastName,
     avatar: '/static/images/avatars/avatar1.jpg',
-    jobtitle: 'Owner'
+    jobTitle: currentUser.role
   };
 
   const ref = useRef<any>(null);
@@ -76,6 +77,12 @@ function HeaderUserbox() {
     setOpen(false);
   };
 
+
+  // signout of google
+  const signOut = () => {
+    localStorage.removeItem('user');
+    window.location.href = '/';
+  }
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
@@ -84,7 +91,7 @@ function HeaderUserbox() {
           <UserBoxText>
             <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
             <UserBoxDescription variant="body2">
-              {user.jobtitle}
+              {user.jobTitle}
             </UserBoxDescription>
           </UserBoxText>
         </Hidden>
@@ -110,20 +117,20 @@ function HeaderUserbox() {
           <UserBoxText>
             <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
             <UserBoxDescription variant="body2">
-              {user.jobtitle}
+              {user.jobTitle}
             </UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>
         <Divider sx={{ mb: 0 }} />
         <List sx={{ p: 1 }} component="nav">
-          <ListItem button to="/management/profile/details" component={NavLink}>
+          <ListItemButton to="/management/profile/details" component={NavLink}>
             <AccountBoxTwoToneIcon fontSize="small" />
             <ListItemText primary="My Profile" />
-          </ListItem>
-          <ListItem button to="/dashboards/messenger" component={NavLink}>
+          </ListItemButton>
+          <ListItemButton to="/dashboards/messenger" component={NavLink}>
             <InboxTwoToneIcon fontSize="small" />
             <ListItemText primary="Messenger" />
-          </ListItem>
+          </ListItemButton>
           <ListItem
             button
             to="/management/profile/settings"
@@ -135,7 +142,7 @@ function HeaderUserbox() {
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
-          <Button color="primary" fullWidth>
+          <Button color="primary" fullWidth onClick={signOut}>
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Sign out
           </Button>

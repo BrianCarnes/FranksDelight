@@ -85,10 +85,10 @@ export default class BaseService {
   }
   public static update<T>(url: string, obj: T): Promise<Response> {
     return axios
-      .post(this.baseURL + url, obj)
+      .patch(this.baseURL + url, obj)
       .then((response) => {
         const result = response.data;
-        if (result && result.success) {
+        if (response && response.status === 200) {
           return new Response(true, result.data, 'Success', '');
         } else {
           const msg =

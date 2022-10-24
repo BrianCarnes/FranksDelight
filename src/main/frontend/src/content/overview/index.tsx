@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 import { styled } from '@mui/material/styles';
 import Logo from '../../components/LogoSign';
-import Hero from './Hero';
+import Home from './Home';
 
 
 const OverviewWrapper = styled(Box)(
@@ -16,18 +16,20 @@ const OverviewWrapper = styled(Box)(
 );
 
 function Overview() {
+  // @ts-ignore
   return (
-    <OverviewWrapper>
-      <Helmet>
-        <title>Franks Delight</title>
-      </Helmet>
-      <Container maxWidth="lg">
-
-        <Card sx={{ p: 10, mb: 2, borderRadius: 12, mt: 2 }}>
-          <Hero />
-        </Card>
-      </Container>
-    </OverviewWrapper>
+    <>
+      <OverviewWrapper>
+        <Helmet>
+          <title>Franks Delight</title>
+        </Helmet>
+        <Container maxWidth="lg">
+          <Card sx={{ p: 10, mb: 2, borderRadius: 12, mt: 2 }}>
+            <Home />
+          </Card>
+        </Container>
+      </OverviewWrapper>
+    </>
   );
 }
 

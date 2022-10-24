@@ -9,7 +9,9 @@ import Wallets from './Wallets';
 import AccountSecurity from './AccountSecurity';
 import WatchList from './WatchList';
 
-function DashboardCrypto() {
+const Admin = () => {
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  console.log(user);
   return (
     <>
       <Helmet>
@@ -45,4 +47,4 @@ function DashboardCrypto() {
   );
 }
 
-export default DashboardCrypto;
+export default Admin;

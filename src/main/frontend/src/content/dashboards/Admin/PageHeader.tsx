@@ -2,10 +2,8 @@ import { Typography, Avatar, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 function PageHeader() {
-  const user = {
-    name: 'Frank Sebastian',
-    avatar: '/static/images/avatars/avatar1.jpg'
-  };
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+
   const theme = useTheme();
 
   return (
@@ -18,13 +16,13 @@ function PageHeader() {
             height: theme.spacing(8)
           }}
           variant="rounded"
-          alt={user.name}
-          src={user.avatar}
+          alt={user.firstName}
+          src="/static/images/avatars/avatar1.jpg"
         />
       </Grid>
       <Grid item>
         <Typography variant="h3" component="h3" gutterBottom>
-          Welcome, {user.name}!
+          Welcome, {user.firstName + " " + user.lastName}!
         </Typography>
         <Typography variant="subtitle2">
           Get your Glizzy with our curry mustard and garlic aioli!

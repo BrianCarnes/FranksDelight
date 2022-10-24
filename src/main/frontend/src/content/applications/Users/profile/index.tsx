@@ -11,16 +11,16 @@ import MyCards from './MyCards';
 import Addresses from './Addresses';
 
 function ManagementUserProfile() {
+  const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
   const user = {
-    savedCards: 7,
-    name: 'Catherine Pike',
-    coverImg: '/static/images/placeholders/covers/5.jpg',
-    avatar: '/static/images/avatars/4.jpg',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage",
-    jobtitle: 'Web Developer',
-    location: 'Barcelona, Spain',
-    followers: '465'
+    savedCards: 0,
+    name: currentUser.firstName + ' ' + currentUser.lastName,
+    coverImg: '/static/images/avatars/avatar1.jpg',
+    avatar: '/static/images/avatars/avatar1.jpg',
+    description: currentUser.profile,
+    jobtitle: currentUser.role,
+    location: 'San Antonio, TX',
+    followers: '467'
   };
 
   return (
