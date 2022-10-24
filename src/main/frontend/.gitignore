@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 google_credentials.json
+stripe_credentials.json
 node_modules
 dist
 dist-ssr
