@@ -139,7 +139,7 @@ function SecurityTab() {
                 primary="Google"
                 secondary={"Account " + currentUser.email + " is connected"}
               />
-              <Button color="primary" size="large" variant="contained">
+              <Button color="primary" size="large" variant="contained" disabled>
                 Connected
               </Button>
             </ListItem>

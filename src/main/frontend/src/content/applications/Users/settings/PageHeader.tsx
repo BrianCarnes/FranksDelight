@@ -1,10 +1,7 @@
 import { Typography } from '@mui/material';
 
 function PageHeader() {
-  const user = {
-    name: 'Catherine Pike',
-    avatar: '/static/images/avatars/1.jpg'
-  };
+  const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
 
   return (
     <>
@@ -12,7 +9,7 @@ function PageHeader() {
         User Settings
       </Typography>
       <Typography variant="subtitle2">
-        {user.name}, this could be your user settings panel.
+        {currentUser.firstName}, welcome to your settings panel.
       </Typography>
     </>
   );
