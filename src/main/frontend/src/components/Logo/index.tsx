@@ -64,6 +64,8 @@ const LogoSignInner = styled(Box)(
         width: 16px;
         height: 16px;
         position: absolute;
+        backgroundRepeat: no-repeat;
+        backgroundSize: cover;
         top: 12px;
         left: 12px;
         z-index: 5;
