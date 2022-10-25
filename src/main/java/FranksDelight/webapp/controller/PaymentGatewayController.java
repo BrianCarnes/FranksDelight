@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class PaymentGatewayController {
 
     @PostMapping("/charge")
-    public String createPaymentIntent(Long amount) throws StripeException {
+    public String createPaymentIntent(Float amount) throws StripeException {
         Gson gson = new Gson();
         Stripe.apiKey = PropertiesReader.getProperty("SECRET_KEY");
 
@@ -31,7 +31,7 @@ public class PaymentGatewayController {
                                 .build()
                 )
                 .setCurrency("USD")
-                .setAmount(amount)
+                .setAmount(amount.longValue())
                 .build();
 
         try {
