@@ -81,6 +81,12 @@ function HeaderUserbox() {
   // signout of google
   const signOut = () => {
     localStorage.removeItem('user');
+    const auth2 = gapi.auth2.getAuthInstance();
+    if (auth2 != null) {
+      auth2.signOut().then(
+        auth2.disconnect().then(console.log('LOGOUT SUCCESSFUL'))
+      )
+    }
     window.location.href = '/';
   }
   return (
