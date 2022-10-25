@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class PaymentGatewayController {
 
     @PostMapping("/charge")
-    public String createPaymentIntent(@RequestParam("amount") Long amount) throws StripeException {
+    public String createPaymentIntent(Long amount) throws StripeException {
         Gson gson = new Gson();
         Stripe.apiKey = PropertiesReader.getProperty("SECRET_KEY");
 
