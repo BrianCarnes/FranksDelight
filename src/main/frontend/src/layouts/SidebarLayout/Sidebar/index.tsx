@@ -61,7 +61,8 @@ function Sidebar() {
               mx={3}
               sx={{
                 width: "52",
-                display: "flex"
+                display: "flex",
+                justifyContent: "center"
               }}
             >
               <Logo />
