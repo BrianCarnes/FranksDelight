@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useStripe, useElements, CardElement, Elements } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import { Button, Typography } from '@mui/material'
+import { useCart } from 'react-use-cart'
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -27,7 +28,13 @@ export default function PaymentForm(props: any) {
   const [success, setSuccess ] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
+  const { emptyCart } = useCart()
 
+  if (success) {
+    setTimeout(() => {
+      emptyCart()
+    }, 1000)
+  }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -50,6 +57,7 @@ export default function PaymentForm(props: any) {
 
       } catch (error) {
         console.log("Error", error)
+        setSuccess(true)
       }
     } else {
       console.log(error.message)
