@@ -16,7 +16,7 @@ import java.util.Map;
 @RestController
 @ResponseBody
 @RequestMapping(value = "/api/items", produces = "application/json")
-@CrossOrigin(origins = "https://franks.fulgentcorp.com:5173/", exposedHeaders = "Content-Range")
+@CrossOrigin(origins = "*", exposedHeaders = "Content-Range")
 public class ItemController {
 
     private final ItemService service;
