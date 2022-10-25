@@ -85,13 +85,9 @@ const FranksLogo = styled(Box)(
   ({ theme }) => `
         width: 100%;
         height: 100%;
-        backgroundSize: cover;
-        backgroundRepeat: no-repeat;
-        position: absolute;
-        top: 12px;
-        left: 12px;
         z-index: 5;
-        backgroundImage: url("/FranksDelight.png");
+        background: url("/FranksDelight.svg");
+        background-repeat: no-repeat;
         `
 );
 
