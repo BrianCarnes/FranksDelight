@@ -97,6 +97,7 @@ type IUser = {
 
 const Home = () => {
   const [user, setUser] = useState<IUser | null>(null)
+  const [isSignedIn, setIsSignedIn] = useState<boolean>(false)
   const userGet = CRUD.getAll('/users');
   let currentUser: IUser[] = [];
 
@@ -125,6 +126,7 @@ const Home = () => {
       })
       localStorage.setItem('user', JSON.stringify(user[0]))
       console.log(currentUser);
+      setIsSignedIn(true);
     } else {
       await CRUD.create('/users/create', {
         firstName: res.profileObj.givenName,
@@ -134,82 +136,82 @@ const Home = () => {
       });
     }
 
-}
+  }
 
-const onFailure = (err: any) => {
-  console.log('failed:', err);
-  return redirect('/');
-};
+  const onFailure = (err: any) => {
+    console.log('failed:', err);
+    return redirect('/');
+  };
 
 // @ts-ignore
   return (
-  <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
-    <Grid
-      spacing={{ xs: 6, md: 10 }}
-      justifyContent="center"
-      alignItems="center"
-      container
-    >
-      <Grid item md={10} lg={8} mx="auto">
-        <Box display="flex" justifyContent="center"  py={0} margin={1} padding={1}>
-          <Logo />
-        </Box>
-        <TypographyH1 sx={{ mb: 2 }} variant="h1">
-          Franks Delight
-        </TypographyH1>
-        <Stack spacing={3} sx={{ mb: 2 }} direction="row" justifyContent="center">
-          <GoogleLogin
-            clientId={Google.web.client_id}
-            buttonText="Sign in with Google"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={'single_host_origin'}
-            isSignedIn={true}
-          />
-          <Button variant="contained" color="primary" component={Link} to="/dashboards/admin" disabled={currentUser.length > 0}>
-            To Dashboard
-          </Button>
-        </Stack>
-        <Grid container spacing={3} mt={5}>
-          <Grid item md={6}>
-            <MuiAvatar>
-              <img
-                src="/static/images/logo/material-ui.svg"
-                alt="Material-UI"
-              />
-            </MuiAvatar>
-            <Typography variant="h4">
-              <Box sx={{ pb: 2 }}>
-                <b>Powered by MUI (Material-UI)</b>
-              </Box>
-              <Typography component="span" variant="subtitle2">
-                A simple and customizable component library to build faster,
-                beautiful, and accessible React apps.
+    <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
+      <Grid
+        spacing={{ xs: 6, md: 10 }}
+        justifyContent="center"
+        alignItems="center"
+        container
+      >
+        <Grid item md={10} lg={8} mx="auto">
+          <Box display="flex" justifyContent="center"  py={0} margin={1} padding={1}>
+            <Logo />
+          </Box>
+          <TypographyH1 sx={{ mb: 2 }} variant="h1">
+            Franks Delight
+          </TypographyH1>
+          <Stack spacing={3} sx={{ mb: 2 }} direction="row" justifyContent="center">
+            <GoogleLogin
+              clientId={Google.web.client_id}
+              buttonText="Sign in with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}
+              isSignedIn={true}
+            />
+            <Button variant="contained" color="primary" component={Link} to="/dashboards/admin" disabled={!isSignedIn}>
+              To Dashboard
+            </Button>
+          </Stack>
+          <Grid container spacing={3} mt={5}>
+            <Grid item md={6}>
+              <MuiAvatar>
+                <img
+                  src="/static/images/logo/material-ui.svg"
+                  alt="Material-UI"
+                />
+              </MuiAvatar>
+              <Typography variant="h4">
+                <Box sx={{ pb: 2 }}>
+                  <b>Powered by MUI (Material-UI)</b>
+                </Box>
+                <Typography component="span" variant="subtitle2">
+                  A simple and customizable component library to build faster,
+                  beautiful, and accessible React apps.
+                </Typography>
               </Typography>
-            </Typography>
-          </Grid>
-          <Grid item md={6}>
-            <TsAvatar>
-              <img
-                src="/static/images/logo/typescript.svg"
-                alt="Typescript"
-              />
-            </TsAvatar>
-            <Typography variant="h4">
-              <Box sx={{ pb: 2 }}>
-                <b>Built with Typescript</b>
-              </Box>
-              <Typography component="span" variant="subtitle2">
-                Franks Delight features a modern technology stack and is
-                built with React + Typescript.
+            </Grid>
+            <Grid item md={6}>
+              <TsAvatar>
+                <img
+                  src="/static/images/logo/typescript.svg"
+                  alt="Typescript"
+                />
+              </TsAvatar>
+              <Typography variant="h4">
+                <Box sx={{ pb: 2 }}>
+                  <b>Built with Typescript</b>
+                </Box>
+                <Typography component="span" variant="subtitle2">
+                  Franks Delight features a modern technology stack and is
+                  built with React + Typescript.
+                </Typography>
               </Typography>
-            </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
-  </Container>
-);
+    </Container>
+  );
 }
 
 export default Home;
