@@ -20,6 +20,9 @@ public class CorsFilter implements WebMvcConfigurer {
                 .allowedOrigins("https://franks.fulgentcorp.com:5173")
                 .allowedOrigins("https://franks.fulgentcorp.com:5174")
                 .allowedOrigins("https://franks.fulgentcorp.com:8080")
+                .allowedOrigins("http://franks.fulgentcorp.com:5173")
+                .allowedOrigins("http://franks.fulgentcorp.com:5174")
+                .allowedOrigins("http://franks.fulgentcorp.com:8080")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
     }
 }
