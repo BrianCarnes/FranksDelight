@@ -86,6 +86,7 @@ const FranksLogo = styled(Box)(
         width: 100%;
         height: 100%;
         backgroundSize: cover;
+        backgroundRepeat: no-repeat;
         position: absolute;
         top: 12px;
         left: 12px;
