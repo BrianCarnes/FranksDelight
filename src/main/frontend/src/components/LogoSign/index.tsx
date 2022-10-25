@@ -91,7 +91,7 @@ const FranksLogo = styled(Box)(
         top: 12px;
         left: 12px;
         z-index: 5;
-        background: url("/FranksDelight.png");
+        backgroundImage: url("/FranksDelight.png");
         `
 );
 
