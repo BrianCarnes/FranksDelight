@@ -171,7 +171,9 @@ function Cart(props: Props) {
               ))}
             </ul>
             <Divider variant="middle" />
-              <Typography variant="h3">Total: ${cartTotal}</Typography>
+                <Typography variant="h4">SubTotal: ${cartTotal.toFixed(2)}</Typography>
+                <Divider variant="middle" />
+                <Typography variant="h3">Total: ${(cartTotal * 1.0825).toFixed(2)}</Typography>
                 <Button
                   onClick={handleOpen}
                   variant="contained"
@@ -185,7 +187,7 @@ function Cart(props: Props) {
                   aria-describedby="modal-modal-description"
                 >
                   <Box sx={style}>
-                    <StripeContainer amount={cartTotal} />
+                    <StripeContainer amount={(cartTotal * 1.0825).toFixed(2)} />
                   </Box>
                 </Modal>
 
