@@ -2,7 +2,7 @@ import Response from './response';
 import axios from 'axios';
 
 export default class BaseService {
-  private static baseURL: string = 'http://18.117.178.65:8080/api';
+  private static baseURL: string = 'https://franks.fulgentcorp.com:8080/api';
 
   public static async getAll<T>(url: string): Promise<Response> {
     return await axios
