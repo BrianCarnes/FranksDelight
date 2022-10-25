@@ -6,6 +6,7 @@ const LogoWrapper = styled(Link)(
         color: ${theme.palette.text.primary};
         padding: ${theme.spacing(0, 1, 0, 0)};
         display: flex;
+        justify-content: center;
         text-decoration: none;
         font-weight: ${theme.typography.fontWeightBold};
 `
