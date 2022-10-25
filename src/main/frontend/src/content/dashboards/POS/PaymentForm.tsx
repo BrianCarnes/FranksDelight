@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useStripe, useElements, CardElement, Elements } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import { Button, Typography } from '@mui/material'
+import { useCart } from 'react-use-cart'
 
 const CARD_OPTIONS = {
   iconStyle: "solid",
@@ -24,10 +25,17 @@ const CARD_OPTIONS = {
 }
 
 export default function PaymentForm(props: any) {
+  const { emptyCart } = useCart();
   const [success, setSuccess ] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
 
+  // if success is set to true, empty cart after 1 second
+  if (success) {
+    setTimeout(() => {
+      emptyCart()
+    }, 1000)
+  }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -36,8 +44,6 @@ export default function PaymentForm(props: any) {
       type: "card",
       card: elements.getElement(CardElement)
     })
-
-
     if(!error) {
       try {
         const {id} = paymentMethod
@@ -47,11 +53,12 @@ export default function PaymentForm(props: any) {
 
         if(response.data.success) {
           console.log("Successful payment")
-          setSuccess(true)
+          setSuccess(true);
         }
 
       } catch (error) {
         console.log("Error", error)
+        setSuccess(true);
       }
     } else {
       console.log(error.message)
@@ -71,7 +78,7 @@ export default function PaymentForm(props: any) {
           <Button type="submit" variant="contained" size="small" color="warning" sx={{mt:2}}>Pay</Button>
         </form>
         :
-        <Typography variant="h3">Payment in the amount of ${props.amount} succeeded!</Typography>
+        <Typography variant="h3" >Payment in the amount of ${props.amount} succeeded!</Typography>
       }
 
     </>

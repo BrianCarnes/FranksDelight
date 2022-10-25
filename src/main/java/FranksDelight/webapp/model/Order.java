@@ -18,15 +18,22 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(insertable=false, updatable=false)
+    @Column(insertable=false, updatable=false, nullable = true)
     private Long userId;
+    @Column(nullable=true)
     private String status;
+    @Column(nullable=true)
     private String title;
+    @Column(nullable=true)
     private String slug;
+    @Column(nullable=true)
     private String summary;
+    @Column(nullable=true)
     private float subTotal;
+    @Column(nullable=true)
     private float itemDiscount;
     private float tax;
+    @Column(nullable=true)
     private float shipping;
     private float total;
     @Column(nullable=true)
@@ -34,11 +41,13 @@ public class Order {
     @Column(nullable=true)
     private float promoDiscount;
     private float grandTotal;
+    @Column(nullable=true)
     private String firstName;
     @Column(nullable=true)
     private String middleName;
     @Column(nullable=true)
     private String lastName;
+    @Column(nullable=true)
     private String mobile;
     @Column(nullable=true)
     private String email;
@@ -50,7 +59,9 @@ public class Order {
     private String state;
     @Column(nullable=true)
     private String zip;
+    @Column(nullable=true)
     private String createdAt;
+    @Column(nullable=true)
     private String updatedAt;
     @Column(nullable=true)
     private String deletedAt;

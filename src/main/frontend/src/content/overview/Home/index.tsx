@@ -97,6 +97,7 @@ type IUser = {
 
 const Home = () => {
   const [user, setUser] = useState<IUser | null>(null)
+  const [isSignedIn, setIsSignedIn] = useState<boolean>(false)
   const userGet = CRUD.getAll('/users');
   let currentUser: IUser[] = [];
 
@@ -125,6 +126,7 @@ const Home = () => {
       })
       localStorage.setItem('user', JSON.stringify(user[0]))
       console.log(currentUser);
+      setIsSignedIn(true);
     } else {
       await CRUD.create('/users/create', {
         firstName: res.profileObj.givenName,
@@ -166,7 +168,7 @@ const onFailure = (err: any) => {
             cookiePolicy={'single_host_origin'}
             isSignedIn={true}
           />
-          <Button variant="contained" color="primary" component={Link} to="/dashboards/admin" disabled={currentUser.length > 0}>
+          <Button variant="contained" color="primary" component={Link} to="/dashboards/admin" disabled={!isSignedIn}>
             To Dashboard
           </Button>
         </Stack>

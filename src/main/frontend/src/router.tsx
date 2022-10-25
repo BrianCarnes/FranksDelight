@@ -14,6 +14,8 @@ const Loader = (Component: any) => (props: any) =>
     </Suspense>
   );
 
+const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+
 // Pages
 
 const Overview = Loader(lazy(() => import('./content/overview')));

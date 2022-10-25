@@ -22,6 +22,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import SupportIcon from '@mui/icons-material/Support';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import type { ApexOptions } from 'apexcharts';
+import CRUD from '../../../hooks/CRUDService';
 
 const AvatarSuccess = styled(Avatar)(
   ({ theme }) => `
@@ -61,7 +62,13 @@ const ListItemAvatarWrapper = styled(ListItemAvatar)(
 
 function AccountBalance() {
   const theme = useTheme();
-
+  let data: object[];
+  const getData = async () => {
+    let getData = await CRUD.getAll('/orders')
+    data = getData.Data
+    console.log(data)
+  }
+  getData()
   const chartOptions: ApexOptions = {
     chart: {
       background: 'transparent',
