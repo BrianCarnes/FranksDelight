@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @ResponseBody
 @RequestMapping(value = "/api/users", produces = "application/json")
-@CrossOrigin(origins = "http://localhost:5173/", exposedHeaders = "Content-Range")
+@CrossOrigin(origins = "https://franks.fulgentcorp.com:5173/", exposedHeaders = "Content-Range")
 public class UserController {
 
     private final UserService service;

@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @ResponseBody
 @RequestMapping(value = "/api/transactions", produces = "application/json")
-@CrossOrigin(origins = "http://localhost:5173/", exposedHeaders = "Content-Range")
+@CrossOrigin(origins = "https://franks.fulgentcorp.com:5173/", exposedHeaders = "Content-Range")
 public class TransactionController {
 
     private final TransactionService service;
