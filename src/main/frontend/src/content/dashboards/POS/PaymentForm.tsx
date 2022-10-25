@@ -41,7 +41,7 @@ export default function PaymentForm(props: any) {
     if(!error) {
       try {
         const {id} = paymentMethod
-        const response = await axios.post("http://localhost:8080/api/payment/charge", {
+        const response = await axios.post("https://franks.fulgentcorp.com:8080/api/payment/charge", {
           amount: props.amount
         })
 
